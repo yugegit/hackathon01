@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>pokeapi</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='script.js'> </script>
+
+    
+    
+</head>
+<body>
+
+    <h1 style="text-align: center;"> Pokemon Database</h1>
+    <a href="https://pokeapi.co/api/v2/pokemon/?limit=50" >CLICK</a>
+    
+    
+  
+    
+    <div id="div1">
+    <p id="p1">PokemonApi</p>
+    <p id="p2">Display 50 Pokemons</p>
+    </div>
+
+    <form>
+        <input type="text" placeholder="Search Pokemon" />
+        <input type="submit" value="Search" />
+      </form>
+      <div class="pokemon-container"></div>
+
+      <h1 style="text-align: center;">Weight Of Each Pokemon</h1>
+      <div style="display: contents;"> weight of each pokemon</div>
+
+      <a href="https://pokemondb.net/pokedex/stats/height-weight">GET IT</a>
+    
+
+    <script>
+    const para = document.createElement("pokemonApi");
+    const node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    const element = document.getElementById("div1");
+    element.appendChild(para);
+    </script>
+    
+    
+    
+</body>
+</html>
+
+                                     SCRIPT.JS
+
+
+var req = fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+
+.then((response) => {
+    console.log(response)
+    return response.json();
+})
+.then((data) => console.log(data))
+.catch((error) => {
+    console.log("some error occurred");
+})
+console.log(req);
+
+const pokeapi = async () => {
+    const response = await fetch ("https://pokeapi.co/api/v2/pokemon/ditto")
+    console.log(response)
+    const data = await response.json()
+    data.forEach(({pokeapi}) => {
+        console.log(`${pokeapi}`);
+    })
+}
+pokeapi();
